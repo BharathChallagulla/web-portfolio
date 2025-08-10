@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {navItems.map((item) => (
           <button
             key={item.page}
-            onClick={() => setActivePage(item.page)}
+            onClick={() => setActivePage(item.page as Page)}
             className={`p-1 gap-3 sm:grow-[0.4] m-2 md:p-2 rounded-lg md:flex-1 justify-start flex items-center transition-colors duration-300 cursor-pointer ${
               activePage === item.page
                 ? "bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
