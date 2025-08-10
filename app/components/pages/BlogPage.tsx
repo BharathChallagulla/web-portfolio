@@ -14,7 +14,7 @@ const BlogPage: React.FC = () => (
     </h2>
     <div className="text-center p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
       <p className="text-lg text-gray-600 dark:text-gray-400">
-        This is a placeholder for your technical articles and insights.
+        This is a placeholder for technical articles and insights.
         <br />
         Stay tuned for posts on MERN stack tips, Java development, and more!
       </p>
