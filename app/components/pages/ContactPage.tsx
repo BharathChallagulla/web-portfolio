@@ -5,74 +5,138 @@
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import React from "react";
 import { portfolioData } from "../../lib/data";
+import { Bounce, toast } from "react-toastify";
+const ContactPage: React.FC = () => {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-const ContactPage: React.FC = () => (
-  <section
-    id="contact"
-    className="min-h-screen container mx-auto p-8 lg:p-16 transition-opacity duration-1000 ease-in-out"
-  >
-    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200 text-center mb-12">
-      Get in Touch
-    </h2>
-    <div className="max-w-xl mx-auto space-y-8">
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4"
-      >
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <textarea
-          placeholder="Your Message"
-          rows={5}
-          className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        ></textarea>
-        <button
-          type="submit"
-          className="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:scale-105"
+  const sendUserData = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_CONTACT_FORM_URL as string,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (response.ok) {
+        callToast("Message sent successfully!", false);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        callToast("Failed to send message. Please try again later.", true);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      callToast("An error occurred. Please try again later.", true);
+    }
+  };
+
+  const callToast = (message: string, error: boolean) => {
+    // Placeholder for toast notification logic
+    const method = error ? toast.error : toast.success;
+    method(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+  return (
+    <section
+      id="contact"
+      className="min-h-screen container mx-auto p-8 lg:p-16 transition-opacity duration-1000 ease-in-out"
+    >
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-200 text-center mb-12">
+        Get in Touch
+      </h2>
+      <div className="max-w-xl mx-auto space-y-8">
+        <form
+          onSubmit={sendUserData}
+          method="POST"
+          className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4"
         >
-          Send Message
-        </button>
-      </form>
-      <div className="flex justify-center items-center gap-6">
-        <a
-          href={portfolioData.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-        >
-          <Linkedin size={36} />
-        </a>
-        <a
-          href={portfolioData.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-        >
-          <Github size={36} />
-        </a>
-        <a
-          href={`mailto:${portfolioData.email}`}
-          className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-        >
-          <Mail size={36} />
-        </a>
-        <a
-          href="#"
-          className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
-        >
-          <Download size={36} />
-        </a>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            placeholder="Your Email"
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
+            rows={5}
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:scale-105 cursor-pointer"
+          >
+            Send Message
+          </button>
+        </form>
+        <div className="flex justify-center items-center gap-6">
+          <a
+            href={portfolioData.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
+            <Linkedin size={36} />
+          </a>
+          <a
+            href={portfolioData.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
+            <Github size={36} />
+          </a>
+          <a
+            href={`mailto:${portfolioData.email}`}
+            className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
+            <Mail size={36} />
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+          >
+            <Download size={36} />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ContactPage;
