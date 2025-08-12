@@ -136,12 +136,12 @@ const ContactPage: React.FC = () => {
           </a>
         </div>
       </div>
-      <button
+      {/* <button
         onClick={() => callToast("This is a notification!", false)}
         className="fixed bottom-4 right-4 p-2 bg-blue-500 text"
       >
         Notify
-      </button>
+      </button> */}
       <ToastContainer
         autoClose={5000}
         toastClassName={(context) => {
