@@ -1,6 +1,6 @@
 // -----------------------------------------------------------
 // File: /components/pages/ProjectsPage.tsx
-// Description: Minimal & clean design for Projects page
+// Description: The Projects component
 // -----------------------------------------------------------
 import { Github, ExternalLink } from "lucide-react";
 import React from "react";

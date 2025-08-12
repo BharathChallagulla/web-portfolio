@@ -1,17 +1,3 @@
-// --- Project File Structure ---
-// /app/layout.tsx
-// /app/page.tsx
-// /components/Navbar.tsx
-// /components/ThemeToggle.tsx
-// /components/pages/HomePage.tsx
-// /components/pages/AboutPage.tsx
-// /components/pages/SkillsPage.tsx
-// /components/pages/ProjectsPage.tsx
-// /components/pages/ExperiencePage.tsx
-// /components/pages/ContactPage.tsx
-// /components/pages/BlogPage.tsx
-// /lib/data.ts
-
 // -----------------------------------------------------------
 // File: /app/page.tsx
 // Description: The main client component for the single-page application.
@@ -40,21 +26,6 @@ type Page =
 
 export default function Home() {
   const [activePage, setActivePage] = useState<Page>("home");
-  const [theme, setTheme] = useState("dark");
-
-  // This useEffect now only handles the theme toggle logic
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
 
   const renderPage = () => {
     switch (activePage) {
@@ -117,20 +88,12 @@ export default function Home() {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
       />
-
       <div className="flex flex-shrink-0 border-r border-gray-200 dark:border-gray-700">
         {/* The Navbar will be the first flex item */}
-        <Navbar
-          activePage={activePage}
-          setActivePage={setActivePage}
-          theme={theme}
-          toggleTheme={toggleTheme}
-        />
+        <Navbar activePage={activePage} setActivePage={setActivePage} />
 
         {/* The main content will be the second flex item. */}
-        {/* The width classes will now work as intended within the flex container. */}
-        {/* Note: I removed `md:ml-auto` as it's not needed with this flex structure. */}
-        <main className="flex-1 p-8 h-screen overflow-y-auto">
+        <main className="flex-1 pl-10 md:p-8 h-screen overflow-y-auto">
           {renderPage()}
         </main>
       </div>

@@ -4,7 +4,6 @@
 // This is a Server Component and sets up the global HTML structure.
 // -----------------------------------------------------------
 import type { Metadata } from "next";
-import { ToastContainer } from "react-toastify";
 import "./globals.css"; // Assuming you have a globals.css file for Tailwind's base styles
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
     "Portfolio for a full-stack developer specializing in MERN and Java.",
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,10 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-        <ToastContainer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -27,8 +27,6 @@ const navItems = [
 interface NavbarProps {
   activePage: string;
   setActivePage: React.Dispatch<React.SetStateAction<Page>>;
-  theme: string;
-  toggleTheme: () => void;
 }
 
 // Define the type for the active page
@@ -41,11 +39,7 @@ type Page =
   | "contact"
   | "blog";
 
-const Navbar: React.FC<NavbarProps> = ({
-  activePage,
-  setActivePage,
-  theme,
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {
   const [hideNav, setHideNav] = React.useState(true);
 
   return (

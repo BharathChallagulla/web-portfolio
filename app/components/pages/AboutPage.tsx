@@ -1,6 +1,6 @@
 // -----------------------------------------------------------
 // File: /components/pages/AboutPage.tsx
-// Description: Modernized About Me section with animations.
+// Description: Component for about me section
 // -----------------------------------------------------------
 import React from "react";
 import { motion } from "framer-motion";

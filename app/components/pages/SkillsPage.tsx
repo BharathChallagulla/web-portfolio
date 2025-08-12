@@ -1,3 +1,7 @@
+// -----------------------------------------------------------
+// File: /components/pages/SkillsPage.tsx
+// Description: The Skills componesnt
+// -----------------------------------------------------------
 import React from "react";
 import { motion } from "framer-motion";
 import {
