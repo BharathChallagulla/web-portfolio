@@ -39,21 +39,11 @@ const ContactPage: React.FC = () => {
   };
 
   const callToast = (message: string, error: boolean) => {
-    // Placeholder for toast notification logic
-
+    // toast notification logic
     const method = error ? toast.error : toast.success;
-    method(message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+    method(message);
   };
+
   return (
     <section
       id="contact"
@@ -136,18 +126,15 @@ const ContactPage: React.FC = () => {
           </a>
         </div>
       </div>
-      {/* <button
-        onClick={() => callToast("This is a notification!", false)}
-        className="fixed bottom-4 right-4 p-2 bg-blue-500 text"
-      >
-        Notify
-      </button> */}
       <ToastContainer
         autoClose={5000}
+        closeButton={false}
+        position="top-right"
+        theme="dark"
         toastClassName={(context) => {
           const type = context?.type;
           return [
-            "relative flex p-4 rounded-lg shadow-md border",
+            "relative flex p-4 shadow-md border",
             "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700",
             type === "success" && "border-green-500",
             type === "error" && "border-red-500",
@@ -158,18 +145,6 @@ const ContactPage: React.FC = () => {
             .join(" ");
         }}
         className="text-sm w-auto font-medium text-gray-800 dark:text-gray-200"
-        progressClassName={(context) => {
-          const type = context?.type;
-          return [
-            "bg-gray-500",
-            type === "success" && "bg-green-500",
-            type === "error" && "bg-red-500",
-            type === "info" && "bg-blue-500",
-            type === "warning" && "bg-yellow-500",
-          ]
-            .filter(Boolean)
-            .join(" ");
-        }}
       />
     </section>
   );
