@@ -5,6 +5,7 @@
 // -----------------------------------------------------------
 import type { Metadata } from "next";
 import "./globals.css"; // Assuming you have a globals.css file for Tailwind's base styles
+import { ToastComponent } from "./components/ToastComponent";
 
 export const metadata: Metadata = {
   title: "Leela Gopala Bharath Kumar Challagulla - Portfolio",

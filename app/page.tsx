@@ -13,6 +13,7 @@ import ProjectsPage from "./components/pages/ProjectsPage";
 import ExperiencePage from "./components/pages/ExperiencePage";
 import ContactPage from "./components/pages/ContactPage";
 import BlogPage from "./components/pages/BlogPage";
+import { ToastComponent } from "./components/ToastComponent";
 
 // Define the type for the active page
 type Page =
@@ -88,10 +89,10 @@ export default function Home() {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
       />
+      <ToastComponent />
       <div className="flex flex-shrink-0 border-r border-gray-200 dark:border-gray-700">
         {/* The Navbar will be the first flex item */}
         <Navbar activePage={activePage} setActivePage={setActivePage} />
-
         {/* The main content will be the second flex item. */}
         <main className="flex-1 pl-10 md:p-8 h-screen overflow-y-auto">
           {renderPage()}
