@@ -11,6 +11,7 @@ import {
   Mail,
   BookOpen,
   AlignJustify,
+  X,
 } from "lucide-react";
 import React from "react";
 
@@ -46,10 +47,12 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => {
     <nav className="fixed flex left-0 top-0 h-screen w-auto z-50 bg-white dark:bg-gray-800 shadow-xl md:static md:min-h-screen md:flex md:flex-col md:items-start">
       <div className="flex flex-col md:justify-start w-full md:w-auto p-1 md:space-y-4">
         <button
-          className="p-1 m-2 h-fit sm:grow-[0.4] md:p-2 rounded-lg md:flex-1 align-middle justify-start flex items-center gap-3 transition-colors duration-300 cursor-pointer"
+          className={`p-1 m-2 h-fit sm:grow-[0.4] md:p-2 rounded-lg md:flex-1 align-middle flex items-center gap-3 transition-colors duration-300 cursor-pointer1 ${
+            hideNav ? "justify-start" : "justify-end"
+          }`}
           onClick={() => setHideNav(!hideNav)}
         >
-          <AlignJustify size={24} />
+          {hideNav ? <AlignJustify size={24} /> : <X size={24} />}
         </button>
 
         {navItems.map((item) => (

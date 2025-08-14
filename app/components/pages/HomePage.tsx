@@ -61,7 +61,7 @@ const HomePage: React.FC<HomePageProps> = ({ setActivePage }) => {
           onClick={() => setActivePage("contact")}
           className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold rounded-lg shadow-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition transform hover:scale-105"
         >
-          Download Resume
+          Contact Me!
         </button>
       </div>
     </section>

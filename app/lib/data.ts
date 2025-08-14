@@ -155,7 +155,7 @@ export const portfolioData = {
       demoLink: "#",
     },
     {
-      title: "Vehicle Onboarding System",
+      title: "Dealer Onboarding and Inventory System",
       techStack: [
         "React.js",
         "Angular 11",
@@ -180,14 +180,6 @@ export const portfolioData = {
       ],
       description:
         "Designed and implemented RESTful APIs and interactive frontends for a municipal finance application, improving efficiency and reducing manual efforts.",
-      githubLink: "#",
-      demoLink: "#",
-    },
-    {
-      title: "CI/CD Automation Pipeline",
-      techStack: ["Jenkins", "Docker", "Kubernetes", "GitHub Actions", "Bash"],
-      description:
-        "Developed automated CI/CD workflows to reduce release cycle times and enable fault-tolerant deployments across multiple environments.",
       githubLink: "#",
       demoLink: "#",
     },
