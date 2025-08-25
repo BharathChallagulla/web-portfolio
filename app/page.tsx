@@ -15,6 +15,47 @@ import ContactPage from "./components/pages/ContactPage";
 import BlogPage from "./components/pages/BlogPage";
 import { ToastComponent } from "./components/ToastComponent";
 
+export const metadata = {
+  // Primary SEO Meta Tags
+  title:
+    "Leela Gopala Bharath Kumar Challagulla | Java Full Stack Developer | Java, Spring Boot, React.js",
+  description:
+    "Full Stack Developer with over 3 years of experience specializing in scalable, enterprise-grade applications. Expertise in secure, cloud-native microservices architectures, responsive frontends with React.js, and CI/CD automation.",
+
+  // Open Graph Tags for Social Media Sharing (LinkedIn, Facebook, etc.)
+  openGraph: {
+    title:
+      "Leela Gopala Bharath Kumar Challagulla | Java Full Stack Developer Portfolio",
+    description:
+      "Full Stack Developer with over 3 years of experience specializing in scalable, enterprise-grade applications. Expertise in secure, cloud-native microservices architectures, responsive frontends with React.js, and CI/CD automation.",
+    url: "https://bharathchallagulla.vercel.app",
+    type: "profile",
+  },
+
+  // Keywords for Search Engines
+  keywords: [
+    "Leela Gopala Bharath Kumar Challagulla",
+    "Java",
+    "Spring Boot",
+    "React.js",
+    "Microservices",
+    "CI/CD",
+    "DevOps",
+    "AWS",
+    "Azure",
+    "PostgreSQL",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Portfolio",
+    "Resume",
+  ],
+
+  // Canonical URL to prevent duplicate content issues
+  alternates: {
+    canonical: "https://bharathchallagulla.vercel.app/",
+  },
+};
+
 // Define the type for the active page
 type Page =
   | "home"
