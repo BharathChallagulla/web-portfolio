@@ -1,8 +1,3 @@
-// -----------------------------------------------------------
-// File: /lib/data.ts
-// Description: This file stores all the portfolio data and its types.
-// -----------------------------------------------------------
-
 export interface ExperienceItem {
   title: string;
   company: string;
@@ -181,6 +176,31 @@ export const portfolioData = {
       description:
         "Designed and implemented RESTful APIs and interactive frontends for a municipal finance application, improving efficiency and reducing manual efforts.",
       githubLink: "#",
+      demoLink: "#",
+    },
+    {
+      title: "Patient Appointment API",
+      techStack: ["Java", "Spring Boot", "REST API", "JPA", "MySQL"],
+      description:
+        "A RESTful API for scheduling appointments between patients and doctors, featuring CRUD operations, validation, and clean layered architecture.",
+      githubLink:
+        "https://github.com/BharathChallagulla/patient-appointment-api",
+      demoLink: "#",
+    },
+    {
+      title: "QR Code Generator",
+      techStack: ["Java", "Spring Boot", "REST API", "ZXing"],
+      description:
+        "A Spring Boot REST API that generates QR code images from text or URLs, providing a simple and efficient endpoint for on-the-fly QR generation.",
+      githubLink: "https://github.com/BharathChallagulla/qr-generator",
+      demoLink: "#",
+    },
+    {
+      title: "URL Shortener",
+      techStack: ["Java", "Spring Boot", "REST API", "H2 Database"],
+      description:
+        "A URL shortening service built with Spring Boot that converts long URLs into compact, shareable short links with redirect support.",
+      githubLink: "https://github.com/BharathChallagulla/UrlShortener",
       demoLink: "#",
     },
   ],

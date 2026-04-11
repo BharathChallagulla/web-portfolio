@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Sage Green */
+  --color-sage-50: #F2F5F0;
+  --color-sage-100: #E0E8DB;
+  --color-sage-200: #C5D4BD;
+  --color-sage-300: #A3B899;
+  --color-sage-400: #8B9D83;
+  --color-sage-500: #6B7D63;
+  --color-sage-600: #556350;
+
+  /* Steel Blue */
+  --color-steel-50: #EEF2F7;
+  --color-steel-100: #D4E0EC;
+  --color-steel-200: #B0C7D9;
+  --color-steel-300: #8BADC5;
+  --color-steel-400: #7C98B3;
+  --color-steel-500: #5F7D95;
+
+  /* Warm Beige */
+  --color-warm-50: #FAF7F2;
+  --color-warm-100: #F0E8DB;
+  --color-warm-200: #E8DCC8;
+  --color-warm-300: #D4C5A9;
+
+  /* Terracotta */
+  --color-terra-50: #FBF3EF;
+  --color-terra-100: #F0DDD5;
+  --color-terra-200: #E8C5B5;
+  --color-terra-300: #D4A090;
+  --color-terra-400: #C4907A;
+  --color-terra-500: #A67260;
+
+  /* Semantic — Light */
+  --color-cream: #FAFAF7;
+  --color-surface: #FFFFFF;
+  --color-heading: #2D3436;
+  --color-body: #4A5568;
+  --color-muted: #94A3B8;
+
+  /* Dark mode surfaces */
+  --color-dark: #121417;
+  --color-dark-card: #1A1D21;
+  --color-dark-elevated: #22262B;
+  --color-dark-border: #2E333A;
+  --color-dark-text: #E8E6E3;
+  --color-dark-secondary: #A0A8B4;
+  --color-dark-muted: #6B7280;
+
+  /* Font */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-body);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+  background-color: var(--color-dark);
+  color: var(--color-dark-secondary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #C5D4BD;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #3A4048;
+}
+
+/* Selection */
+::selection {
+  background-color: #C5D4BD;
+  color: #2D3436;
+}
+
+.dark ::selection {
+  background-color: #556350;
+  color: #E8E6E3;
 }

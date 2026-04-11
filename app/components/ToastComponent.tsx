@@ -5,20 +5,20 @@ export const ToastComponent: React.FC = () => (
     autoClose={3000}
     closeButton={false}
     position="top-right"
-    theme="dark"
+    theme="light"
     toastClassName={(context) => {
       const type = context?.type;
       return [
-        "relative flex p-4 shadow-md border",
-        "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700",
-        type === "success" && "border-green-500",
-        type === "error" && "border-red-500",
-        type === "info" && "border-blue-500",
-        type === "warning" && "border-yellow-500",
+        "relative flex p-4 rounded-xl shadow-md border",
+        "bg-white dark:bg-dark-card border-sage-100 dark:border-dark-border",
+        type === "success" && "!border-sage-400",
+        type === "error" && "!border-terra-400",
+        type === "info" && "!border-steel-400",
+        type === "warning" && "!border-warm-300",
       ]
         .filter(Boolean)
         .join(" ");
     }}
-    className="text-sm w-auto font-medium text-gray-800 dark:text-gray-200"
+    className="text-sm w-auto font-medium text-heading dark:text-dark-text"
   />
 );
