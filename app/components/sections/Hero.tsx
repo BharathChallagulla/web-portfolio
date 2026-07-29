@@ -31,7 +31,10 @@ const Hero: React.FC = () => {
               Open to opportunities
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading dark:text-dark-text leading-[1.1]">
+            <h1 className="
+              text-4xl sm:text-5xl lg:text-6xl font-bold text-heading dark:text-dark-text leading-[1.1]
+              
+            ">
               Hi, I&apos;m{" "}
               <span className="text-sage-500 dark:text-sage-400">Bharath</span>
               <br />
@@ -44,7 +47,7 @@ const Hero: React.FC = () => {
 
             <p className="text-body dark:text-dark-secondary text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
               Building scalable, enterprise-grade applications with modern
-              technologies. 3+ years crafting solutions across healthcare,
+              technologies and about 5 years crafting solutions across healthcare,
               automotive, and public sector domains.
             </p>
 
